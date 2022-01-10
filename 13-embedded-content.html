@@ -1,0 +1,195 @@
+<!-- Que es el contenido embebido 
+
+  - El contenido embebido es el contenido que nos traemos desde fuera
+
+  - Estos archivos son los que mas peso van a traer sobre nuestra web:
+  (Imágenes, videos, audios e iframes, que aunque los iframes no se consideran contenido embebido, lo pondremos dentro de esta sección ya que los traemos desde fuera)
+
+-->
+<!-- Los formatos de imágenes para web los podemos clasificar en dos tipos:
+
+  1.Vectoriales -> SVG (recomendado siempre que se pueda)
+
+  2. Mapa de Bits -> JPG, PNG (8 bits y 24 bits, si necesitamos transparencias),GIF (si se necesita una imagen animada) y WEBP (el formato que menos pesa, está desarrolado por google) 
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1ra Prueba</title>
+  <style>
+    img {
+      max-width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Embedded content</h1>
+
+  <!-- LO PRIMERO QUE DEBEMOS HACER ES COMPLIMIR LA IMAGEN, PARA DESPUÉS PASARLAS A CUALQUIER FORMATO DE FORMA OPTIMIZADA Y OCUPE LO MÍNIMO -->
+
+  <!-- Vectoriales (SVG) existen dos maneras, la primera si solo queremos modificar su tamaño lo pondremos en su formato normal como en el ejemplo 1, y la segunda es si queremos modificar en tiempo real colores/animaciones pincharemos sobre la imagen en concreto en assets y nos dara un codigo mas largo que colocaremos tal cual en el ejemplo 2 -->
+
+  <img src="/assets/icons/facebook.svg" alt="descripción de la imagen">
+
+  <!-- Este tipo de estilo es mas avanzado para CSS y JavaScript:
+    
+  <?xml version="1.0" standalone="yes"?>
+    <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512">
+    <path style="fill:#ffffff; stroke:none;"
+      d="M0 0L0 57C3.42866 49.9231 4.76321 42.0289 8.6659 35C18.0954 18.017 37.0775 2.73941 57 1C51.7835 -1.1889 44.6192 0 39 0L0 0z" />
+    <path style="fill:#475993; stroke:none;"
+      d="M254 512L254 329L219 329C213.064 329 206.231 329.737 201.094 326.121C195.676 322.307 196.341 316.824 195.576 311C193.734 296.978 194.995 282.137 195 268C195.002 261.919 194.844 254.952 200.189 250.854C204.949 247.205 211.375 248 217 248L254 248C254 199.323 246.321 140.616 291 107.756C317.28 88.4284 347.936 89 379 89C389.148 89 407.231 85.4212 411.196 98.0008C413.291 104.649 412 113.096 412 120L412 142C411.993 146.442 412.061 151.136 409.297 154.895C404.258 161.749 394.419 160 387 160C372.461 160 352.42 157.935 341.185 169.185C333.669 176.712 333 188.014 333 198L333 248L387 248C393.698 248 403.26 246.262 408.956 250.514C415.319 255.264 413.9 262.147 413.166 269C411.666 283.006 410.098 297.031 408.282 311C407.481 317.157 407.038 323.462 400.985 326.86C394.729 330.372 385.886 329 379 329L333 329L333 512L421 512C431.8 512 443.286 513.106 454 511.711C468.436 509.83 482.83 502.334 492.961 491.985C502.71 482.027 509.901 467.895 511.711 454C512.855 445.213 512 435.854 512 427L512 386L512 127L512 85C512 76.1457 512.855 66.7872 511.711 58C509.901 44.105 502.71 29.9733 492.961 20.0146C482.83 9.6662 468.436 2.17004 454 0.289368C444.249 -0.980896 433.827 0 424 0L373 0L165 0C130.443 0 95.5192 -1.48566 61 0.0393677C30.5462 1.3848 2.20996 29.7457 0.0895062 60C-2.17619 92.3267 0 125.586 0 158L0 353L0 424C0 443.141 -0.955445 460.672 8.6659 478C18.4947 495.702 36.9652 508.407 57 511.561C67.6312 513.234 79.2497 512 90 512L254 512z" />
+    <path style="fill:#ffffff; stroke:none;"
+      d="M455 0C461.369 3.08572 468.632 4.11227 475 7.4892C492.822 16.9399 509.184 36.2035 511 57C513.189 51.7834 512 44.6192 512 39L512 0L455 0M254 " />
+    </svg> 
+  -->
+
+  <!-- Mapa de BITS (JPG,PNG,GIF y WEBP) -->
+
+  <img src="/assets/images/550x829.webp" alt="Descripcion de la imagen">
+
+
+  <!-- Pero para el device pixel rartio: Hay 2 formas de soportar todo navegador
+    
+  *Primero-------- (Menos común por su antigüedad)
+  
+  Usaremos el atributo srcset="/" (set source), para indicar al avegador mediante un set de imagenes, cual queremos que muestre segun el device pixel ratio, es decir, mediante que condicion queremos que cargue una u otra por defecto (generalmente en los mobiles las imagenes son mas pequeñas entre 320px y 360px) con lo que pondremos en más de 1x el dpx, en mobiles normalmente suele ser de 2x o 3x device pixel ratio
+
+  <img srcset="/assets/images/550x829.webp, /assets/images/550x829.jpg, /assets/images/550x829-mobile.webp 2x, /assets/images/550x829-mobile.jpg 2x" alt="Descripción de la imagen">
+
+
+  *Segundo-------- (Recomendado, aunque mirar si es mejor puntos de quiebra CSS)
+  
+  El metodo más usado es la etiqueta <picture></picture>, la cual dentro lleva otra etiqueta <source srcset="/">
+
+  Esta sólo mostrará una imagen si le colocamos una copia de seguridad con 
+  <img src="/" alt"Descripción de la imagen">, ya que sino no hará nada, puesto que necesita tener una copia de seguridad por si acaso mostrar al menos una en formato .jpg
+
+  También podemos usar para mobile el DPR correspondiente (1x, 2x, 3x...)
+  Otra forma de hacerlo tambien sería con el atributo 
+  
+  media="(max-width:Ancho en pixels) o (min-width:Anchho en pixels)"
+
+  <picture>
+    <source srcset="/assets/images/550x829-mobile.webp 2x, /assets/images/550x829-mobile.jpg 2x">
+    <img src="/assets/images/550x829.webp, /assets/images/550x529.jpg" alt="Descripción de la imagen">
+  </picture>
+
+  <picture>
+    <source srcset="/assets/images/550x829-mobile.webp, /assets/images/550x829-mobile.jpg" media="(max-width:1200px)">
+    <img src="/assets/images/550x829.webp, /assets/images/550x529.jpg" alt="Descripción de la imagen">
+  </picture>
+
+-->
+
+  <!-- Para los -AUDIOS- y -VIDEOS-
+  
+  Pondremos la etiqueta <audio src="" o la etiqueta <video src="" seguido de los atributos que queramos, es posible que de manera local nos funcione pero cuando estemos en un dominio real existen algunos casos como:
+  
+  controls -> Atributo booleano, que nos proporciona un cuadro de mando
+  
+  autoplay -> Para que al recargar la pagina o hacer scroll, se reproduzca automaticamente, los navegadores bloquean el autoplay si no esta silenciado 
+  
+  muted -> Silencia el video hasta que la persona lo active para no bloquear el autoplay como hace Instagram, y se reproduzca pero no moleste al usuario
+
+  loop -> Nos permite auna vez acabado el video vuekva a empezar (en bucle)
+
+  poster -> Para poner una imagen inicial (miniatura), pondremos la ruta dentro del atributo, solo se puede en videos y no se apreciaria bien con el autoplay
+
+  <audio src="/assets/audio/audio.mp3" controls autoplay muted></audio>
+  
+  <video src="/assets/video/video.mp4" controls autoplay muted poster="/"
+  </video>
+
+-->
+
+  <!-- IFRAMES: ES basicamente insertar una web dentro de la nuestra, para poder tener las caracteristicas del video frame o caracteristicas del sitio del que traemos el recurso (Youtube, facebook, instagram, spotify, componentes, formularios, slide de fotos...), esto relentiza mucho la carga de la página, ademas de insertar un <!DOCTYPE html> y otros recursos que relentizan la web, pero para poder hacerlo esta seria la forma:
+
+  Cuando vamos al recurso y pinchamos en compartir, te da las opciones clásicas más la opcion para developers que aparece con el simbolo </> (iframe)
+  
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/vz4z0RLcAyk" title="YouTube video player"
+  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen></iframe>
+
+  *Los unicos atributos OBLIGATORIOS son el width, height y src de donde traeremos el iframe, los demas podemos eliminarlos si es necesario.
+
+-->
+
+  <!-- La etiqueta <figure></figure> se utiliza además de para imagenes, para rellenar contenido relacionado pero que es opcional, es decir, si lo quitaramos seguiria teniendo sentido el resto del contenido, un ejemplo seria un articulo sobre gatos con sus párrafos y ponemos un enlace (link) de un gato cual sea, un gráfico, una tabla con datos o cualquier cosa, y seguiriamos con lo que estabamos hablando sin perder relevancia, (ESTA ES LA FORMA CORRECTA)
+  
+  Para mencion de citas o fragmentos de código se debe hacer con <figure>
+
+  Aparte podemos poner una descripcion breve de este con la etiqueta <figcaption></figcaption>
+
+-->
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque soluta iusto dolore in voluptates nisi asperiores
+    laborum doloremque eveniet, quidem magnam atque alias suscipit sint ad enim esse. Exercitationem, obcaecati.
+  </p>
+
+  <figure>
+    <img src="https://imagenes.20minutos.es/files/image_656_370/uploads/imagenes/2021/01/12/vengadores-marvel.jpeg"
+      alt="Marvel - Age of ultron">
+    <figcaption>The avengers 2021</figcaption>
+  </figure>
+
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores tempora neque saepe nostrum quod eaque alias
+    illum explicabo, dolore placeat? Voluptatem laudantium mollitia, aliquid reiciendis architecto minima vel officia
+    quod.</p>
+
+
+  <!-- Las etiquetas <META name=""> van siempre en el HEAD y acompañadas de otro atributo llamado content="" 
+
+  <meta name="description" content="Descripción breve de cada página de nuestra web que aparecerás en google bajo el enlace"
+
+  <meta name="author" content="Propietario o creador de la web"
+
+  ... y existen otras más que las autocompleta VSCode al poner meta...
+
+-->
+
+  <!-- FAVICON: 
+  
+  Generaremos todos los favicon que necesitemos para cada navegador, mobile o sistema operativo en la web de www.favicon-generator.org 
+
+  Generate icons for Web, Android, Microsoft, and iOS (iPhone and iPad) 
+
+  Los guardamos y nos dará las meta acecuadas para cada uno y especificaremos cuidadosamente la ruta exacta de la página web en cada uno de los favicons
+-->
+
+  <!-- ICONS: En fontawesome Get started ponemos nuestro correo y nos registramos, confirmamos el correo y acto seguido terminamos de rellenar la info de nuestro perfil, nos generará un script para nuestros proyectos para poder usar cualquier icono y enlazarlo mediante DNS, modificar color, tamaño, etcétera mediante en CSS y javaScript (debe ir en el HEAD y cada icono que vayamos a usar generara una etiqueta <i> en formato HTML ya lista para usar) -->
+
+  <!-- -ATRIBUTOS DE ACCESIBILIDAD-
+
+  Esto da para un video entero segun Dorian, ya que es muy importante a dia de hoy y bastante extenso, algunos de los mas importantes no solo son para gente invidente sino para aquellas personas que quieran navegar pulsando tabulador y no con el uso del ratón, de manera que puedan navegar mas rapido y saltar de un parrafo a otro y en el que el orden es MUY IMPORTANTE:
+  
+-->
+
+  <p tabindex="1">Parrafo 1</p>
+  <p tabindex="2">Parrafo 2</p>
+  <p tabindex="3">Parrafo 3</p>
+
+
+  <!-- Chromevox classic extension por ejemplo es un reader screen para gente que no puede leer, y en el cual el navegador va leer los dos atributos llamados (aria y rol), haciendo una descripcion de la pagina incluido fotos y enlaces
+
+(ejemplo) -->
+
+  <a href="#" aria-label="Leer más sobre la noticia de marte">Leer más</a>
+
+  <!-- OPEN GRAPH PROTOCOL: Son las miniaturas por defecto que tiene facebook cada vez que compartimos un link, es muy importante poner el contenido que se va ver (Titulo, descripcion, imagen, enlace) 
+
+  Basic Metadata en la documentación oficial nos dice como modificarlo
+-->
+
+  <!-- TWITTER CARD: Es lo mismo que el protocolo de facebook, salvo que para cambiar algo debemos ir a SAMPLE CODE donde solo tendremos que moficiar el content en el texto que nos da por defecto y comprobar si lo hemos hecho de la forma correcta en la pestaña Twitter Card Validation, donde ingresaremos la URL y nos generara una vista previa de la tarjeta CARD, Summary card, player card, App card -->
+
+</body>
+
+</html>
