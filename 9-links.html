@@ -1,0 +1,87 @@
+<!-- Los enlaces: 
+  
+  También conocidos como Links, tiene como objetivo conectar una página web con otra página web, puede usarse tanto para movernos dentro de una misma web, como para otra página web.
+
+Tiene un atributo obligatorio llamado href, donde especificamos la ruta del recurso o del sitio que queremos obtener.
+
+También tienen un atributo "target", que configura como queremos visualizar el recurso o sitio que solicitamos
+
+Movernos dentro de una misma pagina, es mediando un elemento anchor (ancla): -->
+
+
+<a href="ruta-del-recurso-o-sitio">Ruta del recurso o sitio</a><br>
+
+<!-- Ejemplos-->
+
+<a href="index.html">Ir al inicio</a><br>
+
+<a href="section-vs-article.html">Nos llevaria al archivo seleccionado</a><br>
+
+<a href="https://www.unadireccioncualquiera.com">Esto es un enlace a una web</a><br>
+
+
+<!-- Rutas absolutas:
+Tienen un protocolo http o https y son unicas en la red, se suelen utilizar para rutas externas generalmente, salvo casos muy concretos -->
+
+<!-- Rutas relativas:
+Pueden ser relativas al punto donde nos encontramos o relativas a la raiz del proyecto (usaremos solo la barra / para que cargue de sugerencias en caso de no encontrar la página de destino
+
+Se recomienda usar esta ruta siempre dentro de lo posible en nuestros proyectos)
+
+- No tienen protocolo
+
+Si el recurso se encuentraal mismo nivel (carpeta), pondremos unicamente el nombre del archivo, pero si lo que queremos es salir de una carpeta actual (usaremos ../ ) por cada nivel que queramos salir -->
+
+
+<!-- Atributos de los enlaces:
+
+target: Define donde se abrirá el recurso solicitado, por norma general siempre que useis rutas absolutas se pondría
+"_blank" (si queremos abrirla en una nueva pestaña) y "_self" (es el valor que tiene por defecto y es como no hacer
+nada) con lo que lo abrirá en la misma pestañana, éste último no lo utilizaremos casi nunca.
+
+download: Es un atributo booleano y sirve para descargar el contenido solicitado
+
+- IMPORTANTE - El recurso debe estar en tu mismo servidor.
+
+
+Navegacion a través de Anclas (anchor):
+
+Para poder desplazarnos haciendo scroll dentro de nuestra pagina o entre paginas, se necesita poner el hash "#" dentro del elemento <a href="#"></a> y el id="" en la parte donde queramos que vaya, sin id= no funcionará.
+
+En el caso de hacerlo hacia otra pagina diferente, seleccionamos la ruta mediante la barra inclinada y el destino
+seguido de la entrension con una "#" y el POST que deseemos, quedando algo así (/1raPrueba/home.html#Post1) 
+
+-->
+
+<nav>
+  <p><a href="#Post1">Post1</a></p>
+  <p><a href="#Post2">Post2</a></p>
+  <p><a href="#Post3">Post3</a></p>
+  <p><a href="#Post4">Post4</a></p>
+  <p><a href="/1ra-prueba/the-avengers.html#Post5">post5</a></p>
+</nav>
+
+<body>
+  <section>
+    <article>
+      <h1 id="Post1">Post 1</h1>
+      <h1 id="Post2">Post 2</h1>
+      <h1 id="Post3">Post 3</h1>
+      <h1 id="Post4">Post 4</h1>
+      <h1 id="Post5">Post 5</h1>
+    </article>
+  </section>
+
+  <!-- ENLACES MUERTOS mientras probamos JavaScript ("#")
+  Por ejemplo:  <a href="#"> ... </a>
+  
+  <a href="#" target="_blank">cat photos</a>
+  -->
+
+  <!-- Convierte una IMAGEN en un ENLACE ("#")
+  
+    <a href="#"><img src="https://bit.ly/fcc-relaxing-cat" alt="A cute orange cat lying on its back."></a>
+  
+  -->
+
+</body>
