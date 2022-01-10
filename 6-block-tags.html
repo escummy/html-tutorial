@@ -1,0 +1,86 @@
+<!-- Etiquetas en bloque -->
+
+<!--
+  
+  address -> Se utiliza para dar información de contacto al article mas cercano o también para todo el body
+
+ejemplo: Una noticia en concreto ocurrida en un lugar que guarda relevancia, mientras que si la colocamos en el footer, esto correspondería a la direccion de contacto del propietario de la web.
+
+blockquote -> Se utiliza para marcar al navegador las citas a otros autores o documentos (se puede poner el atributo cite="") para crear un enlazar al documento/fuente original (no es un link)
+
+pre -> Se utiliza para poder poner un código preformateado, el cual necesita ser representado igual que se escribio
+
+div -> Se usa para dividir el documento, semanticamente no significa nada, por lo que es un contenedor genérico que se utiliza para dar estilos a través de CSS o para usar algo llamado "delegacion de eventos" en javaScript
+
+hr -> Horizontal rule, se utiliza para decirle al navegador que vamos a cambiar de tema
+
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- address -->
+  <address>
+    Tony Stark <br>
+    Malibú 10880 <br>
+    90265 <br>
+    California
+  </address>
+
+  <!-- blockquote -->
+  <blockquote cite="https://es.wikipedia.org/wiki/Lorem_ipsum">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, commodi facere rerum sunt iusto atque nulla
+      asperiores enim explicabo, vel qui excepturi unde labore quis voluptate veritatis inventore ipsum temporibus.
+    </p>
+  </blockquote>
+
+  <!-- pre  -->
+  <pre>
+    -Hola,
+            Como estás?
+                          -Muy bien
+                                        Me alegro
+</pre>
+
+  <!-- Div es un separador de contenidos-> El 95% de las veces solo para CSS salvo que queramos separar usuarios, informacion de contacto y otras cosas sin que se mezclen dentro de un mismo separador de contenidos-->
+
+  <div>
+    <h2>usuario 1</h2>
+    <p>email</p>
+    <p>descripcion</p>
+  </div>
+
+  <div>
+    <h2>usuario 2</h2>
+    <p>email</p>
+    <p>descripcion</p>
+  </div>
+
+  <!-- hr -> No se usa para dibujar una linea -->
+  <hr>
+
+</body>
+
+
+<!-- address en el footer-->
+
+<footer>
+  <address>
+    Tony Stark <br>
+    Malibú 10880 <br>
+    90265 <br>
+    California
+  </address>
+</footer>
+
+</html>
