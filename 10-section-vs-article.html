@@ -1,0 +1,125 @@
+<!-- Usos correctos de la etiqueta SECTION, ARTICLE y ASIDE -->
+
+<!-- Section: es un contenedor genérico que agrupa contenido que está relacionado,cuando creamos bloques cuyo contenido esta dentro de un bloque total, lo semánticamente correcto es utilizar un section -->
+
+<!-- Article: es un contenedor que representa contenido independiente, es decir podemos leer ese fragmento en cualquier otro sitio y seguiria teniendo sentido por sí mismo -->
+
+<!-- Aside: Se utiliza para representar contenido relacionado pero que no forma parte del contenido principal -->
+
+<!-- ANIDAMIENTO: Un "Section" puede contener articles, por ejemplo, si tenemos varios apartados que hablan sobre un mismo tema, como podría ser hablar sobre etiquetas HTML, estas deben ir dentro de un section, ya que el contenido guarda relacion entre sí, mientras que "Article" seria contenido independiente, ya que podríamos leer uno sin haber leido el resto y seguiria teniendo sentido por sí solo (como es definido como un componente de la página de manera independiente, esto indica que podría tener un <header></header> y un <footer></footer>) -->
+
+<!-- Tambien existe el caso en que ARTICLE contenga varias secciones, el articulo independiente podria ser hablar de navegadores y éste contener dentro secciones como por ejemplo "Navegadores mas usados en 2021" -->
+
+
+<!-- EJEMPLO (SECTION): Noticias diferentes que no guardan relación -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <header>
+    <h1>Noticias nacionales importantes</h1>
+  </header>
+  <main>
+    <section>
+      <h2>Noticias del dia de hoy</h2>
+      <article>
+        <!-- Como contenido independiente se le permite tener un encabezado y un pie de articulo, pero ambas no son obligatorias -->
+        <header>
+          <h3>Noticia 1</h3>
+        </header>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, soluta? Aliquid sint eveniet delectus nihil,
+          animi voluptas voluptatem iste qui amet minima fuga ad maiores quod libero, quibusdam fugit corrupti.</p>
+        <footer>Fecha, fuente, autor, link de la fuente, etcétera</footer>
+      </article>
+      <article>
+        <!-- Como contenido independiente se le permite tener un encabezado y un pie de articulo, pero ambas no son obligatorias -->
+        <header>
+          <h3>Noticia 2</h3>
+        </header>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste nesciunt hic aspernatur, sunt debitis sequi,
+          sint ad nobis nisi voluptatem quibusdam. Sint beatae totam molestias necessitatibus aut ad reprehenderit hic?
+        </p>
+        <footer>Fecha, fuente, autor, link de la fuente</footer>
+      </article>
+      <article>
+        <!-- Como contenido independiente se le permite tener un encabezado y un pie de articulo, pero ambas no son obligatorias -->
+        <header>
+          <h3>Noticia 3</h3>
+        </header>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quam at minima labore! Quod, dolorum cupiditate
+          unde quia ea eius recusandae omnis minima dolore minus cum? Deleniti, laborum. Dolore, omnis?</p>
+        <footer>Fecha, fuente, autor, link de la fuente</footer>
+      </article>
+    </section>
+    <!-- Tambien podriamos poner un section dentro de otro section, porque lo que hace es agrupar contenido relacionado (cerraria aqui el section), por lo que los h3 pasarian a ser h4 en caso de incluir un h1 anterior al h1, que pasaria a ser h2 y asi sucesivamente para este ejemplo-->
+  </main>
+</body>
+
+</html>
+
+
+
+EJEMPLO (ARTICLE): Noticias que guardan relación entre sí
+
+
+<body>
+  <article>
+    <h2>Guerra de los naegadores</h2>
+    <section>
+      <header>
+        <h3>Microsoft</h3>
+      </header>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, recusandae laborum est soluta accusamus aut
+        minima sequi voluptatum adipisci exercitationem sint quaerat ipsum odio illo repudiandae facilis ipsam
+        reiciendis blanditiis?</p>
+      <footer>Fecha, fuente, autor, info, link de la fuente o foto</footer>
+    </section>
+    <section>
+      <header>
+        <h3>Netscape</h3>
+      </header>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla totam quasi doloribus consectetur, accusamus
+        ipsa dolore fuga dolorem sint rerum? Dolorum vel quod eos officia eum accusamus maxime labore cupiditate!</p>
+      <footer>Fecha, fuente, autor, link de la fuente, etcétera</footer>
+    </section>
+  </article>
+</body>
+
+</html>
+
+
+
+Ejemplo simple de (ASIDE):
+
+<!-- Se utiliza para representar contenido directamente relacionado pero que no forma parte del contenido princial, es decir, habla de lo mismo pero no forma parte del contenido principal, ya sea un menu, cursos relacionados, un link a youtube, etcétera.
+  
+Semanticamente correcto se pondría fuera del <main></main>, pero tanto la W3C como la MDN dan como valido ponerlo tanto dentro como fuera del contenido principal -->
+
+
+<!-- Fuera es mas correcto por el nombre de la etiqueta -->
+
+<body>
+  <header>Cursos de programacion nivel avanzado</header>
+  <aside>Cursos nivel básicodesde cero</aside>
+  <main>
+    
+  </main>
+</body>
+
+
+<!-- Dentro tambien es valido aunque no se recomienda -->
+
+<body>
+  <header>Cursos de programacion nivel avanzado</header>
+  <main>
+    <aside>Cursos nivel básico desde cero</aside>
+  </main>
+</body>
