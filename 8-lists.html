@@ -1,0 +1,106 @@
+<!-- Las listas en HTML se representan con la etiqueta (<li></li> list item), tanto en las ol como en las ul sirven para listar contentenido, aunque con CSS nosotros podamos darle el mismo aspecto, el navegador lo va entender de esta forma en que lo pongamos, por lo que existen 3 tipos:
+
+ul -> Unorderer list, se utilizan cuando el orden de la lista no tiene importancia (Ej: Lista de la compra)
+
+ol -> Order list, se utiliza cuando el orden de la lista es importante, dandole un orden numércio (Ej: Top 10)
+
+*TODOS LOS MENU DE NAVEGACION, ya sean desplegables o no se hacen con <ul></ul>
+
+dl -> Difinition list, se utiliza para dar una lista de definiciones especificas (Ej: Diccionario)
+
+Cada elemento de una lista de definición lleva 2 etiquetas:
+
+dt -> Definition term, es el térmio que vamos a definir
+dd -> Definition description, es la descripción del término
+
+Se pueden construir listas anidadas teniendo en uno de los <li></li> otro <ul><ol> según sea necesario -->
+
+
+<!-- ATRIBUTOS DE LAS LISTAS
+
+    Podemos poner tanto iconos, fotos, como lo que queramos con CSS, salvo que necesitaramos poner algo directamente desde HTML.
+
+  ul -> Pueden ser type= "(disc 'por defecto', square y circle)"
+
+  ol -> Puede ser:
+  
+  type="": Estilo de numeración (1, A, a, I, i)
+  start="": Inicio de una secuencia (iniciar desde un número en adelante)
+  -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Tipos de listas</h1>
+  <h2>Menú de navegación</h2>
+  <nav>
+    <ul>
+      <li><a href="#Post1">Post1</a></li>
+      <li><a href="#Post2">Post2</a></li>
+      <li><a href="#Post3">Post3</a></li>
+      <li><a href="#Post4">Post4</a></li>
+      <li><a href="#Post5">Post5</a></li>
+    </ul>
+  </nav>
+  <h2>Lista de la compra</h2>
+  <ul type="square">
+    <li>Pan</li>
+    <li>Leche</li>
+    <li>Huevos</li>
+    <li>Queso</li>
+    <li>Chocolate</li>
+  </ul>
+  <h2>Ruta para Frontend</h2>
+  <ol>
+    <li>Html5
+      <ol type="I" start="5">
+        <li>Estructura</li>
+        <ul type="circle">Introducción:
+          <li> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id aliquid accusantium mare nostrum en la goa.
+          </li>
+          <li>Contexto</li>
+          <li>Semántica</li>
+        </ul>
+        <li>Sintaxis</li>
+        <li>Etiquetas</li>
+      </ol>
+    </li>
+    <li>CSS3</li>
+    <li>Javascrypt</li>
+    <li>Typescript</li>
+    <li>Git</li>
+    <li>Sass</li>
+    <li>Media Queries</li>
+    <li>Angular</li>
+    <li>Breack points</li>
+    <li>Testing</li>
+  </ol>
+  <h2>Lenguajes de front-end</h2>
+  <dl>
+    <dt>HTML</dt>
+    <dd>Hypertext Markup Language: Es el lenguaje de marcado que se utiliza para estructurar datos en una página web
+    </dd>
+
+    <dt>CSS</dt>
+    <dd>Cascade Style Sheets: Es un lenguaje de diseño que se utiliza para dar estilos al HTML</dd>
+
+    <dt>JavaScript</dt>
+    <dd>Es un lenguaje de programación que se utiliza para dar interactividad en un sitio web</dd>
+    <dt>TypeScript</dt>
+
+    <dd>TypeScript es un lenguaje de programación libre de código abierto desarrollado y mantenido por Microsoft. Es un
+      superconjunto de JavaScript, que esencialmente añade tipos estáticos y objetos basados en clases</dd>
+  </dl>
+
+</body>
+
+</html>
