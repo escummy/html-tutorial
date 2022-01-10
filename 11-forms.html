@@ -1,0 +1,383 @@
+<!-- Formularios
+  
+  Ya no pintamos datos en la pantalla, los formularios los usaremos para solicitar información al usuario en concreto.
+
+-->
+
+<!-- La estructura básica de un formulario se compone de 4 ELEMENTOS: 
+
+    form -> Es la etiqueta que engloba el formulario
+    
+    label -> Sirve para nombrar el campo que vamos a rellenar, debe tener el atributo for="" al cual se le indicará un id="" que permitira emparejar el label con su input correspondiente
+    
+    input -> Sirve para crear un campo que le permitirá al usuario interactuar, cuyo unico atributo obligatorio es name=""
+    
+    button -> Crean un boton para poder enviar el formulario
+
+-->
+
+<!-- imput type:
+  
+    button: Se comporta igual que el boton <button>, pero no envia el formulario, se le suele dar otros usos concretos en JavaScript
+    
+    submit: Se utiliza para enviar el formulario (también)
+    hidden: Campo oculto (puede contener valor pero no se mostrará)
+    datetime: Obsoleto (NO USAR)
+    date: Se utiliza para ver una fecha en el calendario
+    time: Se utiliza para introducir una hora
+    month: Se utiliza para introducir un mes
+    week: Se utiliza para introducir el numero de semana y año
+
+    datetime-local: Fecha y hora (no se recomienda aunque quede mas bonito porque no funciona en firefox)
+    TIP- En lugar de usar este, una alternativva es usar un <input> de tipodate y otro de tipo time
+
+    *Estos suelen usarme mucho en moviles, ya que facilita al usuario adiferencia de en la web, al completado se refiere con ayudas de teclado*
+
+    search: Se utiliza para las barras de busqueda
+    email: Se utiliza para emails
+    tel: se utiliza para introducir numeros telefónicos
+    password: Se utiliza para contraseñas
+    url: Se utiliza para introducir URLs
+
+    color: Se utiliza para especificar una paleta de color util al usuario
+    number: Se utiliza para valores numéricos
+    reset: Se utiliza para resetear el formulario
+    text: Es el valor que aparece por defecto
+    
+    range: Se utiliza para establecer un barra desplazable de rango, ademaspodemos darle atributos (step="") (min="") y (max="").
+
+-->
+
+<!-- Inputs seleccionables (te permiten seleccionar entre una serie e opciones):
+
+    radio: Permite elegir una sola opcion de una lista de opciones relacionadas
+    
+    checkbox: Permite seleccionar varias opciones de una lista de opciones relacionadas
+    
+    select: Crean una lista de opciones donde podemos seleccionar una o varias (además no es un atributo es una etiqueta en sí, pero nos deja hacerlo)
+
+    *Cada opción irá dentro de una etiqueta <option></option>
+    
+    *Si tenemos muchas opciones, lo que podemos hacer es ordenarlas por categorías a través de la etiqueta <optgroup> y el atrubuto label="" para nombrar la categoria que deseamos.
+
+-->
+
+<!-- 
+  
+  Otro elemento seleccionable que surgió con HTML5, es el input de tipo list, al que si se le añade el atributo list con el nombre del objeto seleccionable, pulsando < + D (nos dara la etiqueta <DATALIST>) al que pondremos un id="", ya que es bastante útil porque podemos buscar en un input por caracteres que coincidan, es decir, palabras clave dentro de los <option value=""></option>, y las muestre si conteniene algun caracter que pongamos, además, mediante el value o el nombre del option, podemos dar una breve descripcion del objeto seleccionable.
+
+  Este funciona exactamente igual que el <select>
+    
+    <form action="Ruta/página de recepción">
+      <input type="list" list="Animales">
+      <datalist id="Animales">
+
+-->
+<!-- Otros <input>
+  
+  fieldset: Se utiliza para agrupar elementos dentro de un formulario
+  legend: representa una etiqueta para el contenido de un fieldset
+  
+  file: Este input se utiliza para cargar archivos y enviarlos desde el formulario
+
+  meter: Representa un valor en un rano conocido
+  progress: Representa el progreso de una tarea
+  textarea: Se utiliza para introducir texto en un formulario
+
+-->
+
+<!-- ATRIBUTOS MAS IMPORTANTES DE LOS FORMULARIOS
+  
+  placeholder -> Da una pista en campo a rellenar sobre lo que se requiere en opacidad mas bajas (al escribir desaparece)
+
+  required -> hace que un campo sea obligatorio
+  readonly -> Hace que un campo sea solo de lectura
+  
+  min - max -> Establece un minimo y un máximo numérico
+  
+  mix lenght - max lenght -> Establece el minimo y máximo de caracteres en un campo de texto
+
+  selected -> Equivale a los (checked a secas) en los <select>, sirve para establecer una opción por defecto
+
+  disabled -> Desactiva un campo y no se podra escribir en él 
+  autofocus -> Para poner el foco por defecto y podamos escribir en ese campo directamente nada mas reiciciar la página
+
+-->
+<!-- Como enviar un formulario correctamete mediante GET y POST
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+</html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- Emparejamiento -->
+  <form action="Ruta/página de recepción">
+    <label for="name">Nombre</label>
+    <input id="name">
+    <button>Enviar</button>
+  </form>
+
+  <!-- Simple envio de formulario -->
+  <form action="Ruta/página de recepción">
+    <label for="text">Nombre</label>
+    <input type="text">
+    <input type="submit">
+  </form>
+
+  <!-- En lugar de usar datetime-local, que no se ve en firefox -->
+  <form action="Ruta/página de recepción">
+    <input type="date">
+    <input type="time">
+  </form>
+
+  <form action="Ruta/página de recepción">
+    <input type="month">
+    <input type="week">
+  </form>
+
+  <!-- Ponemos un <div> para separar y quede mas estético al verlo desde el movil, vamos a comprobar que la contraseña no es nada segura en el puerto y servidor local desde el que trabajamos normalmente.
+    
+    Para ello abriremos la Terminal y escribiremos (ipconfig + enter) donde encontraremos datos de nuestra ip personal y puertos para poder copiarlas y poner en el movil
+    
+  Ejemplo: 196.0.0.1:5500/formularios -->
+
+  <form action="Ruta/página de recepción">
+    <div>
+      <label> search
+        <input type="search">
+      </label>
+    </div>
+    <div>
+      <label> telephone
+        <input type="tel">
+      </label>
+    </div>
+    <div>
+      <label> email
+        <input type="email">
+      </label>
+    </div>
+    <div>
+      <label> password
+        <input type="password">
+      </label>
+    </div>
+    <div>
+      <label> url
+        <input type="url">
+      </label>
+    </div>
+  </form>
+
+  <!-- inputs EXTRA -->
+  <form action="Ruta/página de recepción">
+    <input type="color">
+    <input type="number">
+    <input type="range" step="2" min="0" max="10">
+    <input type="reset">
+    <input type="text">
+  </form>
+
+  <!-- Inputs de tipo radio de un lado u otro, en este ejemplo si relacionamos varios elementos del mismo tipo name="" (podremos seleccionar 'solo 1' de las opciones del mismo género), y si lo que queremos es que aparezca uno marcado por defecto, se tendra que añadir el atributo ("checked") a secas, puesto que no tiene ningún valor.
+    
+    Todos los inputs de tipo radio deben llevar un valor obligatorio, que describa el campo mencionado -->
+
+  <form action="Ruta/página de recepción">
+    <label> HTML
+      <input type="radio">
+    </label>
+    <label>
+      <input type="radio">
+      HTML
+    </label>
+
+    <h2>Elementos seleccionables</h2>
+    <form action="Ruta/página de recepción">
+      <h3>Género</h3>
+      <label>Masculino
+        <input type="radio" name="gender" value="masculino">
+      </label>
+      <label> Femenino
+        <input type="radio" name="gender" value="femenino">
+      </label>
+      <label> Desconocido
+        <input type="radio" name="gender" value="desconocido" checked>
+      </label>
+    </form>
+
+
+    <!-- Inputs de tipo Checkbox de un lado u otro, en este ejemplo si relacionamos varios elementos del mismo tipo name="" (podremos seleccionar 'varias' opciones del mismo género), y si lo que queremos es que aparezca uno marcado por defecto, se tendra que añadir el atributo ("checked") a secas, puesto que no tiene ningún valor.
+    
+    Todos los inputs de tipo checkbox deben llevar un valor obligatorio, que describa el campo mencionado -->
+
+    <form action="Ruta/página de recepción">
+      <label> HTML
+        <input type="checkbox">
+      </label>
+      <label>
+        <input type="checkbox">
+        HTML
+      </label>
+
+      <h2>Lenguajes que conoces</h2>
+      <label> HTML
+        <input type="checkbox" name="language" value="html">
+      </label>
+      <label> CSS
+        <input type="checkbox" name="language" value="css">
+      </label>
+      <label> JavaScript
+        <input type="checkbox" name="language" value="JavaScript">
+      </label>
+      <label> TypeScript
+        <input type="checkbox" name="language" value="TypeScript">
+      </label>
+    </form>
+
+
+    <!-- Inputs de tipo Select, en este ejemplo si relacionamos diferentes elementos del mismo género, colocaremos el atributo name="" sólo a la etiqueta select y el atributo value="" a cada uno de los <option>.
+    
+      Para seleccionar varias opciones en lugar de 1 sola, le pondremos el atributo multiple a secas, en la etiqueta <select>
+    
+    -->
+
+    <form action="Ruta/página de recepción">
+      <select name="Lenguajes de programación">
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>
+        <option value="JavaScript">JavaScript</option>
+        <option value="TypeScript">TypeScript</option>
+      </select>
+    </form>
+
+    <!-- Select avvanzado -->
+    <form action="Ruta/página de recepción">
+      <select name="Mascotas">
+        <optgroup label="Mamíferos">
+          <option value="Gatos">Gatos</option>
+          <option value="Perro">Perro</option>
+          <option value="Conejo">Conejo</option>
+          <option value="Hamster">Hamster</option>
+          <option value="Caballo">Caballo</option>
+        </optgroup>
+        <optgroup label="Aves">
+          <option value="Águila">Águila</option>
+          <option value="Gaviota">Gaviota</option>
+          <option value="Loro">Loro</option>
+          <option value="Paloma">Paloma</option>
+          <option value="Halcón">Halcón</option>
+        </optgroup>
+        <optgroup label="Reptiles">
+          <option value="Serpiente">Serpiente</option>
+          <option value="Iguana">Iguana</option>
+          <option value="Cocodrilo">Cocodrilo</option>
+          <option value="Lagarto">Lagarto</option>
+          <option value="Salamanquesa">Salamanquesa</option>
+        </optgroup>
+      </select>
+    </form>
+
+    <!-- <Datalist> -->
+    <form action="Ruta/página de recepción">
+      <input type="list" list="Animales">
+      <datalist id="Animales">
+        <option value="Gatos">Gatos</option>
+        <option value="Perro">Perro</option>
+        <option value="Conejo">Conejo</option>
+        <option value="Hamster">Hamster</option>
+        <option value="Caballo">Caballo</option>
+        <option value="Águila">Águila</option>
+        <option value="Gaviota">Gaviota</option>
+        <option value="Loro">Loro</option>
+        <option value="Paloma">Paloma</option>
+        <option value="Halcón">Halcón</option>
+        <option value="Serpiente">Serpiente</option>
+        <option value="Iguana">Iguana</option>
+        <option value="Cocodrilo">Cocodrilo</option>
+      </datalist>
+    </form>
+
+    <!-- Otros input -->
+
+    <form action="Ruta/paágina de recepción">
+      <fieldset>
+        <div>
+          <legend>Datos personales</legend>
+          <label for="name">Nombre</label>
+          <input type="name" id="name">
+        </div>
+        <div>
+          <label for="surname">Apellidos</label>
+          <input type="name" id="surname">
+        </div>
+      </fieldset>
+    </form>
+
+    <!-- input de tipo file, meter, pregress, textarea...
+    
+      Este tipo de input solamente con HTML no se puede hacer demasiado salvo cargar el archivo, para mostrar barra de progresos, imagenes en miniatura, etcétera, se necesita la ayuda de CSS y JavaScript
+    -->
+
+    <form action="Ruta/página de recepción">
+      <input type="file">
+      <meter id="fuel" min="0" max="100" value="60" low="30" high="75" optimum="50">
+      </meter>
+
+      <!-- Al input de progreso <progress></progress> se le puede establecer un value y otros atributos como tiene <meter></meter>, de lo contrario queda dando vueltas porque necesita el uso de JavaScript para que el progreso se mueva en tiempo real o provocado por algun factor del usuario -->
+
+      <label for="task">Tarea</label>
+      <progress id="task" max="100"></progress>
+    </form>
+
+    <!-- Input de tipo textarea, es un input que posiblemente usemos mucho -->
+
+    <form action="Ruta/página de recepción">
+      <label for="message">Mensaje</label>
+      <textarea name="" id="message" cols="50" rows="8"></textarea>
+    </form>
+
+    <!-- Atributos utiles para los formularios: placeholder,required,readonly, min,max,min lenght, max lenght,selected, disabled, autofocus-->
+
+    <form action="Ruta/página de recepción">
+      <input type="text" placeholder="Introducir nombre" required>
+
+      <!-- Siempre que queramos que un campo no se pueda modificar es mejor ponerle el readonly, ya que desde el inspector al igual que otros elementos pueden modificarse (minificar texto para dificultarlo) -->
+
+      <input type="text" value="Solo lectura" readonly>
+      <input type="text" value="Campo desactivado" disabled>
+      <select name="numbers">
+        <option value="able">able</option>
+        <option value="disable" selected>disable</option>
+      </select>
+      <input type="number" min="0" max="10" required>
+      <input type="text" minlength="8" maxlength="20" required autofocus> from 0-20 numbers
+      <input type="submit">
+    </form>
+
+    <!-- Enviar un formulario correctamente usando el name"" (puesto que sino sera como si ese campo no existiera) y la form GET y POST para enviarlos, revisamos en el navegador si se esta enviando la informacion correctamente (5500/enviar.html?name=&surname=) 
+
+<form action="enviar.html" method="GET">
+<form action="enviar.html" method="POST">
+
+      .Aprender diferencias de envio.
+-->
+
+    <form action="enviar.html" method="GET">
+      <label for="name">Nombre</label>
+      <input type="text" id="name" name="name">
+      <label for="surname">Apellidos</label>
+      <input type="text" id="surname" name="surname">
+      <input type="submit">
+    </form>
+</body>
+
+</html>
